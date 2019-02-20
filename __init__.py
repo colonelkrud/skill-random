@@ -156,21 +156,3 @@ async def flip_a_coin(opsdroid, config, message):
     result = random.choice(["heads", "tails"])
     text = random.choice(COIN_FLIP_RESPONSES).format(result=result)
     await message.respond(text)
-
-
-@match_regex(r'^([0-9]*) in (bin|hex|oct)$')
-async def base_converter(opsdroid, config, message):
-    """
-    Replies with a given number in a given base.
-    Usage: (number) in (bin|hex|oct)
-    """
-    number = message.regex.group(1)
-    wanted_base = message.regex.group(3)
-    if wanted_base == "bin":
-        await message.respond(str(bin(number)))
-    elif wanted_base == "hex":
-        await message.respond(str(hex(number)))
-    elif wanted_base == "oct":
-        await message.respond(str(oct(number)))
-    else:
-        await message.respond("What did you just do?")
