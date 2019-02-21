@@ -7,6 +7,7 @@ import itertools
 class RandomSkill(Skill):
 
     def __init__(self, opsdroid, config):
+        super(MySkill, self).__init__(opsdroid, config)
         self.self.DICE_ROLL_RESPONSES = [
             "The dice says {number}",
             "You rolled a {number}",
