@@ -31,7 +31,7 @@ class RandomSkill(Skill):
 
 
     @match_regex(r'roll a dice', case_sensitive=False)
-    async def roll_a_dice(self, opsdroid, config, message):
+    async def roll_a_dice(self, message):
         """
         Rolls a single dice and replies with the result.
         Usage: roll a dice
@@ -42,7 +42,7 @@ class RandomSkill(Skill):
 
 
     @match_regex(r'roll a(n)? ([1-9][0-9]*) sided dice$', case_sensitive=False)
-    async def roll_a_n_sided_dice(self, opsdroid, config, message):
+    async def roll_a_n_sided_dice(self, message):
         """
         Rolls a single dice of given sides and replies with the result.
         Usage: roll a(n) (#sides) sided dice
@@ -60,7 +60,7 @@ class RandomSkill(Skill):
 
     @match_regex(r'roll ([1-9][0-9]*) ([1-9][0-9]*) sided dice$',
                 case_sensitive=False)
-    async def roll_many_dice(self, opsdroid, config, message):
+    async def roll_many_dice(self, message):
         """
         Rolls a given number of dice of given sides and replies with the results.
         Also gives some basic stats about the dice rolled.
@@ -95,7 +95,7 @@ class RandomSkill(Skill):
 
 
     @match_regex(r'roll a(n)? d([1-9][0-9]*)$', case_sensitive=False)
-    async def roll_dx(self, opsdroid, config, message):
+    async def roll_dx(self, message):
         """
         Rolls a dice of given sides and replies with the results.
         Usage: roll a(n) d(#sides)
@@ -112,7 +112,7 @@ class RandomSkill(Skill):
 
 
     @match_regex(r'roll ([1-9][0-9]*) d([1-9][0-9]*)$', case_sensitive=False)
-    async def roll_many_dx(self, opsdroid, config, message):
+    async def roll_many_dx(self, message):
         """
         Rolls a given number of dice of given sides and replies with the results.
         Also gives some basic stats about the dice rolled.
@@ -147,7 +147,7 @@ class RandomSkill(Skill):
 
 
     @match_regex(r'flip a coin', case_sensitive=False)
-    async def flip_a_coin(self, opsdroid, config, message):
+    async def flip_a_coin(self, message):
         """
         Replies with heads or tails.
         Usage: flip a coin
