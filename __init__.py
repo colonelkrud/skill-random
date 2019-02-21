@@ -8,16 +8,16 @@ class RandomSkill(Skill):
 
     def __init__(self, opsdroid, config):
         super(RandomSkill, self).__init__(opsdroid, config)
-        self.self.DICE_ROLL_RESPONSES = [
+        self.DICE_ROLL_RESPONSES = [
             "The dice says {number}",
             "You rolled a {number}",
             "It's a {number}"
             ]
-        self.self.COIN_FLIP_RESPONSES = [
+        self.COIN_FLIP_RESPONSES = [
             "It landed on {result}",
             "You got {result}",
             "It's {result}"
-        ]
+            ]
 
         self.MODE_EXISTS = """
             <p>You rolled the following: {list}</p>
