@@ -70,13 +70,12 @@ class RandomSkill(Skill):
         """
         dice = int(message.regex.group(1))
         sides = int(message.regex.group(2))
-        if sides == 2 and 1 <= dice:
+        if sides == 2 and 1 <= dice <= 10000000:
             await message.respond("You only get one.")
             result = random.choice(["heads", "tails"])
             text = random.choice(self.COIN_FLIP_RESPONSES).format(result=result)
             await message.respond(text)
-        elif 1 <= dice and sides != 2:
-
+        elif 1 <= dice <= 10000000 and sides != 2:
             res = np.random.random_integers(1, sides, size=dice)
             average = round(sum(res) / len(res))
             minimum_roll = str(min(res))
@@ -92,7 +91,7 @@ class RandomSkill(Skill):
                                     average=average, min=minimum_roll,
                                     max=maximum_roll))
         else:
-            await message.respond('What did you do?')
+            await message.respond('You dont need that many dice')
 
 
     @match_regex(r'roll a(n)? d([1-9][0-9]*)$', case_sensitive=False)
@@ -121,13 +120,12 @@ class RandomSkill(Skill):
         """
         dice = int(message.regex.group(1))
         sides = int(message.regex.group(2))
-        if sides == 2 and 1 <= dice:
+        if sides == 2 and 1 <= dice <= 10000000:
             await message.respond("You only get one.")
             result = random.choice(["heads", "tails"])
             text = random.choice(self.COIN_FLIP_RESPONSES).format(result=result)
             await message.respond(text)
-        elif 1 <= dice and sides != 2:
-
+        elif 1 <= dice <= 10000000 and sides != 2:
             res = np.random.random_integers(1, sides, size=dice)
             average = round(sum(res) / len(res))
             minimum_roll = str(min(res))
@@ -143,7 +141,7 @@ class RandomSkill(Skill):
                                                     min=minimum_roll,
                                                     max=maximum_roll))
         else:
-            await message.respond('What did you do?')
+            await message.respond('You dont need that many dice')
 
 
     @match_regex(r'flip a coin', case_sensitive=False)
